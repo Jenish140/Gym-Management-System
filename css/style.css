@@ -1,0 +1,274 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #1a1a2e;
+    --primary-color: #e94560;
+    --glass-color: rgba(255, 255, 255, 0.05);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --text-color: #f0f0f0;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: url('../img/gym-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Glassmorphism --- */
+.glass-panel, .glass-form, .glass-table, .glass-card {
+    background: var(--glass-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* --- Neumorphism (Soft UI) --- */
+.neumorphic-btn, .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, rgba(233, 69, 96, 0.9), rgba(200, 50, 70, 0.9));
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+}
+
+.neumorphic-btn:hover, .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 7px 7px 15px var(--shadow-dark), -7px -7px 15px var(--shadow-light);
+    background: linear-gradient(145deg, rgba(233, 69, 96, 1), rgba(200, 50, 70, 1));
+}
+
+.neumorphic-btn.delete {
+    background: linear-gradient(145deg, #505050, #303030);
+}
+.neumorphic-btn.delete:hover {
+    background: linear-gradient(145deg, #606060, #404040);
+}
+
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Base styles for all form fields */
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for all form fields */
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+/* --- Specific styles for <select> dropdown --- */
+.form-group select {
+    /* Remove default browser arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Add our custom arrow (a white chevron) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f0f0f0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem; /* Make space for the arrow */
+}
+
+/* Style for the <option> elements in the list */
+.form-group select option {
+    background: var(--bg-color); /* Dark background for options list */
+    color: var(--text-color);
+}
+
+/* --- Layout & Containers --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.glass-form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.glass-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.main-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* --- Navigation --- */
+.sidebar {
+    width: 260px;
+    padding: 2rem;
+    background: var(--glass-color);
+    backdrop-filter: blur(15px);
+    border-right: var(--glass-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2.5rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    margin-bottom: 1.2rem;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar nav a:hover, .sidebar nav a.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.sidebar .logout {
+    margin-top: auto;
+}
+
+/* --- Main Content Area --- */
+.content-area {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.content-area h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.glass-card {
+    margin-bottom: 1.5rem;
+}
+
+/* --- Tables --- */
+.glass-table {
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.styled-table thead tr {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none;
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.styled-table .actions a {
+    color: var(--primary-color);
+    margin-right: 10px;
+    text-decoration: none;
+}
+.styled-table .actions a.delete {
+    color: #ff6b6b;
+}
+
+/* --- Alerts & Messages --- */
+.message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+.message.success {
+    background-color: rgba(46, 204, 113, 0.2);
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+}
+.message.error {
+    background-color: rgba(231, 76, 60, 0.2);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+}
