@@ -35,7 +35,7 @@ Access phpMyAdmin: Open your web browser and navigate to http://localhost/phpmya
 
 Create Database: Create a new database named gym_db.
 
-Execute SQL: Select the new gym_db and paste the project's SQL setup code (for tables and initial data, including the Admin user) into the SQL tab and run it.
+Execute SQL: Select the new gym_db and create tables(with correct name).
 
 C. Initial Login & Testing Workflow
 
